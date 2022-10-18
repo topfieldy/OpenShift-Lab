@@ -107,12 +107,16 @@ cdコマンドで、Helmが入っている場所に移動し、その後に実�
 
 ## 実際にアプリを開いてみる
 アプリのアクセス方法は、「トポロジー」のデプロイしたアプリの中から、「wed」を選び、「リソース」のタブを開きます。webのPodポートが「8080」だと確認できます。次にサービスの中の「web」のリンク先にアクセスします。
-<img width="1078" alt="スクリーンショット 2022-10-18 21 38 55" src="https://user-images.githubusercontent.com/112134163/196431554-322e68da-9e9f-49d7-b037-9828934da5ea.png">
+<img width="1078" alt="スクリーンショット 2022-10-18 21 38 55" src="https://user-images.githubusercontent.com/112134163/196431554-322e68da-9e9f-49d7-b037-9828934da5ea.png"> 
 
 外部ロードーバランサーのIPが「163.73.69.51」と確認できる。
-<img width="1070" alt="スクリーンショット 2022-10-18 21 42 38" src="https://user-images.githubusercontent.com/112134163/196432390-85425722-871d-4e0f-bd9b-fba3ab399ba4.png">
+<img width="1070" alt="スクリーンショット 2022-10-18 21 42 38" src="https://user-images.githubusercontent.com/112134163/196432390-85425722-871d-4e0f-bd9b-fba3ab399ba4.png"> 
 
-ブラウザに、HTTP://<外部ロードバランサーのIP>:<web Podポート>を入力。その結果しっかりと動いていることが確認できました。
+ブラウザに、下記をIPアドレスを入力。
+```
+http://<外部ロードバランサーのIP>:<web Podポート>
+```
+その結果しっかりと動いていることが確認できました。
 <img width="1078" alt="スクリーンショット 2022-10-18 21 48 20" src="https://user-images.githubusercontent.com/112134163/196433731-f5cd3659-ea4f-41dc-a138-26224d251c41.png">
 
 #### アプリのデプロイの時間と難易度が低くなる
