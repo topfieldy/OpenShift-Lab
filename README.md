@@ -113,7 +113,7 @@ cdコマンドで、Helmが入っている場所に移動し、その後に実�
 <img width="1070" alt="スクリーンショット 2022-10-18 21 42 38" src="https://user-images.githubusercontent.com/112134163/196432390-85425722-871d-4e0f-bd9b-fba3ab399ba4.png">
 
 ブラウザに、HTTP://<外部ロードバランサーのIP>:<web Podポート>を入力。その結果しっかりと動いていることが確認できました。
-<img width="1440" alt="スクリーンショット 2022-10-18 9 59 58" src="https://user-images.githubusercontent.com/112134163/196337662-a48ea325-da1c-4521-8c6c-6aac63a5d1fd.png">
+<img width="1078" alt="スクリーンショット 2022-10-18 21 48 20" src="https://user-images.githubusercontent.com/112134163/196433731-f5cd3659-ea4f-41dc-a138-26224d251c41.png">
 
 #### アプリのデプロイの時間と難易度が低くなる
 OpenShiftを利用したので短時間で簡単にアプリをデプロイできました。従来の手作業でやっていたアプリのデプロイと比較して、裏ではOpenShiftが自動でプロセスをやってくれるので、人が実施するプロセスの数や時間が大幅に短縮して、簡単に速くアプリのデプロイが可能になります。
