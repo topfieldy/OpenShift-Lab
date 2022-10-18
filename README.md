@@ -36,10 +36,7 @@ Helmとは、リポジトリからのインストールや、Helmによってデ
 
 ### デプロイの手順
 OpenShift上にデプロイをするので、[ガイド](https://github.com/instana/robot-shop/tree/master/OpenShift)に従い設定を行いました。
-ここでは、作成したOpenShiftクラスターにCLIでログインをして、Administratorの権限で「robot-shop」というProjectを作成しました。OpenShiftではデフォルト状態で「restricted」というSCC(Security Context Constraints)のセキュリティ制約がかかっています。SCCとはPodのパーミッションを制御する機能です。ただ今回はモニタリングをするので、Root起動を許可しています。
-![OCP 4 x](https://user-images.githubusercontent.com/112134163/196216692-09278479-d15c-4024-9fde-62627fe220ba.png)
-
-
+下記のコマンドを実行することで、アプリケーションをデプロイできました。
 ```
 export KUBECONFIG=/path/to/oc/cluster/dir/auth/kubeconfig
 oc adm new-project robot-shop
@@ -49,19 +46,51 @@ cd robot-shop/K8s
 helm install robot-shop --set openshift=true -n robot-shop helm
 ```
 
-
-
-#### 1行目ではOpenShiftクラスターにログインをすることになっていますが、下記の手順で別のコマンドを利用してログインしました。
+それぞれのコマンドの意味について解説していきます。
+```
+export KUBECONFIG=/path/to/oc/cluster/dir/auth/kubeconfig
+```
+ここでは、OpenShiftクラスターへログインをしています。私の場合は別の方法でログインをしました。
 1. OpenShiftクラスターのOpenShift Webコンソールにアクセス
 2. Developerメニューのトポロジー
-3. 自分のアカウント名の右にあるプルダウンから「ログインコマンドのコピー」（画面右上）
-4. Display Token
-5. Log in with this token のコマンドをコピー（OpenShift CLIをローカルにインストールしておく必要がある ※前提条件2）
+3. 画面右上にある自分のアカウント名の右側にあるプルダウンから「ログインコマンドのコピー」
+4. Display Tokenをクリック
+5. Log in with this token のコマンドをコピー（※前提条件1が必須）
 6. CLIにコピーしたログインコマンドをペースト
 
+```
+oc adm new-project robot-shop
+```
+「oc」とはOpenShiftのコマンドで、「adm」はAdministratorの権限を使って、「robot-shop」という新しいProjectを作成しています。
 
-手順4. デプロイされたアプリを確認
-トポロジーからデプロイを確認できます。いくつもアプリケーションがデプロイされているのが確認できます。
+```
+oc adm policy add-scc-to-user anyuid -z default -n robot-shop
+oc adm policy add-scc-to-user privileged -z default -n robot-shop
+```
+OpenShiftではデフォルト状態で「restricted」というSCC(Security Context Constraints)のセキュリティ制約がかかっています。SCCとはPodのパーミッションを制御する機能です。
+今回のアプリは制約が強いので、Projectに特別な強い権限を付与しています。
+ただ、今回使用したOpenShift環境は権限の範囲が狭く、下記のようにErrorとなってしまい、Projectに強い権限を付与することができませんでした。アプリのデプロイ失敗です。。。
+```
+oc adm　 policy add-scc-to-user anyuid -z default -n robot-shop
+Error from server (Forbidden): rolebindings.rbac.authorization.k8s.io "system:openshift:scc:anyuid" is forbidden: User "IAM#yuki.uehara2@ibm.com" cannot get resource "rolebindings" in API group "rbac.authorization.k8s.io" in the namespace "robot-shop"
+
+oc adm policy add-scc-to-user privileged -z default -n robot-shop
+Error from server (Forbidden): rolebindings.rbac.authorization.k8s.io "system:openshift:scc:privileged" is forbidden: User "IAM#yuki.uehara2@ibm.com" cannot get resource "rolebindings" in API group "rbac.authorization.k8s.io" in the namespace "robot-shop"
+```
+
+ここからは別の[OpenShift環境](https://techzone.ibm.com/collection/fyre-ocp-clusters#)に切り替えてやっていきます。
+ここまでやってきたことと同様に進めていきます。
+
+```
+cd robot-shop/K8s
+helm install robot-shop --set openshift=true -n robot-shop helm
+```
+cdコマンドで、Helmが入っている場所に移動し、その後に実際にアプリをデプロイするコマンドを実行しています。
+※前提条件2 として事前にHelmをインストールしておかないとコマンドが実行できないので注意が必要です。
+
+
+#### デプロイされたアプリを確認
+トポロジーからデプロイを確認することができます。いくつもアプリケーションがデプロイされているのが確認できるので、アプリのデプロイ成功です。
 <img width="1148" alt="スクリーンショット 2022-10-18 13 44 26" src="https://user-images.githubusercontent.com/112134163/196337451-52a1bbb0-0a5f-4cd5-9203-da998ca04af7.png">
 
 
