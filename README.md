@@ -66,6 +66,7 @@ oc adm new-project robot-shop
 ```
 「oc」とはOpenShiftのコマンドで、「adm」はAdministratorの権限を使って、「robot-shop」という新しいProjectを作成しています。 
 <br>
+<br>
 
 ```
 oc adm policy add-scc-to-user anyuid -z default -n robot-shop
@@ -86,6 +87,7 @@ Error from server (Forbidden): rolebindings.rbac.authorization.k8s.io "system:op
 ここからは別の[OpenShift環境](https://techzone.ibm.com/collection/fyre-ocp-clusters#)に切り替えてやっていきます。
 ここまでやってきたことと同様に進めていきます。 
 <br>
+<br>
 
 ```
 cd robot-shop/K8s
@@ -93,6 +95,7 @@ helm install robot-shop --set openshift=true -n robot-shop helm
 ```
 cdコマンドで、Helmが入っている場所に移動し、その後に実際にアプリをデプロイするコマンドを実行しています。
 ※前提条件2 として事前にHelmをインストールしておかないとコマンドが実行できないので注意が必要です。 
+<br>
 <br>
 
 
