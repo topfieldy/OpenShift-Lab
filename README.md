@@ -94,6 +94,7 @@ cd robot-shop/K8s
 helm install robot-shop --set openshift=true -n robot-shop helm
 ```
 cdコマンドで、Helmが入っている場所に移動し、その後に実際にアプリをデプロイするコマンドを実行しています。
+
 ※前提条件2 として事前にHelmをインストールしておかないとコマンドが実行できないので注意が必要です。 
 <br>
 <br>
