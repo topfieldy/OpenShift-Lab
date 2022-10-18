@@ -20,7 +20,7 @@ Purposeは下記から選択する必要があります。普段自分の学習�
 
 5. OpenShift環境がプロビジョニングされていることを確認
 完了メールか、Technology ZoneのMy Reservationから作成された環境を確認することができます。
-![スクリーンショット 2022-10-18 0 12 09](https://user-images.githubusercontent.com/112134163/196215155-160b4f28-9ef7-4461-b6cb-b6b6b8e23c4d.png)
+<img width="1073" alt="スクリーンショット 2022-10-18 13 51 52" src="https://user-images.githubusercontent.com/112134163/196338566-d733b5bc-b53a-47bc-b3ac-9aa45620d39a.png">
 
 ## OpenShift上にGitHubに公開されているアプリケーションをデプロイ
 実際にGitHubに公開されているアプリケーションをデプロイしていきます。監視用アプリケーションの[Instanaのアプリ](https://github.com/instana/robot-shop)を使用してデプロイします。
