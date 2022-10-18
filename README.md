@@ -30,11 +30,11 @@ Purposeは下記から選択する必要があります。普段自分の学習�
 [IBM CloudのDocsのガイド](https://cloud.ibm.com/docs/openshift?topic=openshift-openshift-cli&locale=ja)を参考にしました。
 
 
-#### 前提条件2 Helmのインストール
+### 前提条件2 Helmのインストール
 Helmとは、リポジトリからのインストールや、Helmによってデプロイされたアプリの管理をCLIで簡易化するためのOSSです。Kubernetes向けのパッケージマネージャーとしてよく使われるようです。LinuxにおけるyumやRPM、MacOSにおけるHomebrewなどと同様のツールと考えると理解しやすいです。
 
 
-### デプロイの手順
+## デプロイの手順
 OpenShift上にデプロイをするので、[ガイド](https://github.com/instana/robot-shop/tree/master/OpenShift)に従い設定を行いました。
 下記のコマンドを実行することで、アプリケーションをデプロイできました。
 ```
@@ -46,7 +46,8 @@ cd robot-shop/K8s
 helm install robot-shop --set openshift=true -n robot-shop helm
 ```
 
-それぞれのコマンドの意味について解説していきます。
+
+##### それぞれのコマンドの意味について解説していきます。
 ```
 export KUBECONFIG=/path/to/oc/cluster/dir/auth/kubeconfig
 ```
@@ -58,10 +59,12 @@ export KUBECONFIG=/path/to/oc/cluster/dir/auth/kubeconfig
 5. Log in with this token のコマンドをコピー（※前提条件1が必須）
 6. CLIにコピーしたログインコマンドをペースト
 
+
 ```
 oc adm new-project robot-shop
 ```
 「oc」とはOpenShiftのコマンドで、「adm」はAdministratorの権限を使って、「robot-shop」という新しいProjectを作成しています。
+
 
 ```
 oc adm policy add-scc-to-user anyuid -z default -n robot-shop
@@ -78,6 +81,7 @@ oc adm policy add-scc-to-user privileged -z default -n robot-shop
 Error from server (Forbidden): rolebindings.rbac.authorization.k8s.io "system:openshift:scc:privileged" is forbidden: User "IAM#yuki.uehara2@ibm.com" cannot get resource "rolebindings" in API group "rbac.authorization.k8s.io" in the namespace "robot-shop"
 ```
 
+
 ここからは別の[OpenShift環境](https://techzone.ibm.com/collection/fyre-ocp-clusters#)に切り替えてやっていきます。
 ここまでやってきたことと同様に進めていきます。
 
@@ -89,7 +93,7 @@ cdコマンドで、Helmが入っている場所に移動し、その後に実�
 ※前提条件2 として事前にHelmをインストールしておかないとコマンドが実行できないので注意が必要です。
 
 
-#### デプロイされたアプリを確認
+### デプロイされたアプリを確認
 トポロジーからデプロイを確認することができます。いくつもアプリケーションがデプロイされているのが確認できるので、アプリのデプロイ成功です。
 <img width="1148" alt="スクリーンショット 2022-10-18 13 44 26" src="https://user-images.githubusercontent.com/112134163/196337451-52a1bbb0-0a5f-4cd5-9203-da998ca04af7.png">
 
