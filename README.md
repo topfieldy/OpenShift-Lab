@@ -1,5 +1,5 @@
 # Technology Zoneを利用して、OpenShift環境にアプリケーションをデプロイ
-Technology Zoneを利用して、OpenShift環境を作成し、公開されているアプリケーションをデプロイして実際に動かしてみました。実施してみて、難しかったところや詰まったところも含めて記載していきます。
+Technology Zoneを利用して、OpenShift環境を作成し、公開されているアプリケーションをデプロイして実際に動かしてみました。実施してみて、難しかったところや詰まったところも含めて紹介していきます。
 
 ## Technology ZoneにOpenShift環境を払出し
 OpenShiftの環境のreserve方法を解説します。
@@ -22,14 +22,34 @@ Purposeは下記から選択する必要があります。普段自分の学習�
 完了メールか、Technology ZoneのMy Reservationから作成された環境を確認することができます。
 <img width="1073" alt="スクリーンショット 2022-10-18 13 51 52" src="https://user-images.githubusercontent.com/112134163/196338566-d733b5bc-b53a-47bc-b3ac-9aa45620d39a.png">
 
-## OpenShift上にGitHubに公開されているアプリケーションをデプロイ
+## GitHubに公開されているアプリケーションをOpenShift上にデプロイ
 実際にGitHubに公開されているアプリケーションをデプロイしていきます。監視用アプリケーションの[Instanaのアプリ Robot-shop](https://github.com/instana/robot-shop)を使用してデプロイします。
 <img width="1440" alt="スクリーンショット 2022-10-18 0 14 14" src="https://user-images.githubusercontent.com/112134163/196215705-763f36ef-b356-4983-b1ae-3bb6bb53e464.png">
 
-### 前提条件1　OpenShiftクラスターの設定
+### 前提条件1 OpenShift CLI(oc)のインストール
+[IBM CloudのDocsのガイド](https://cloud.ibm.com/docs/openshift?topic=openshift-openshift-cli&locale=ja)を参考にしました。
+
+
+#### 前提条件2 Helmのインストール
+Helmとは、リポジトリからのインストールや、Helmによってデプロイされたアプリの管理をCLIで簡易化するためのOSSです。Kubernetes向けのパッケージマネージャーとしてよく使われるようです。LinuxにおけるyumやRPM、MacOSにおけるHomebrewなどと同様のツールと考えると理解しやすいです。
+
+
+### デプロイの手順
 OpenShift上にデプロイをするので、[ガイド](https://github.com/instana/robot-shop/tree/master/OpenShift)に従い設定を行いました。
-ここでは、作成したOpenShiftクラスターにCLIでログインをして、Administratorの権限で「robot-shop」というProjectを作成しました。OpenShiftではデフォルト状態で「restricted」というSCC(Security Context Constraints)というセキュリティ制約がかかっています。SCCとはPodのパーミッションを制御する機能です。ただ今回はモニタリングをするので、Root起動を許可しています。
+ここでは、作成したOpenShiftクラスターにCLIでログインをして、Administratorの権限で「robot-shop」というProjectを作成しました。OpenShiftではデフォルト状態で「restricted」というSCC(Security Context Constraints)のセキュリティ制約がかかっています。SCCとはPodのパーミッションを制御する機能です。ただ今回はモニタリングをするので、Root起動を許可しています。
 ![OCP 4 x](https://user-images.githubusercontent.com/112134163/196216692-09278479-d15c-4024-9fde-62627fe220ba.png)
+
+
+、、、
+export KUBECONFIG=/path/to/oc/cluster/dir/auth/kubeconfig
+oc adm new-project robot-shop
+oc adm policy add-scc-to-user anyuid -z default -n robot-shop
+oc adm policy add-scc-to-user privileged -z default -n robot-shop
+cd robot-shop/K8s
+helm install robot-shop --set openshift=true -n robot-shop helm
+、、、
+
+
 
 #### 1行目ではOpenShiftクラスターにログインをすることになっていますが、下記の手順で別のコマンドを利用してログインしました。
 1. OpenShiftクラスターのOpenShift Webコンソールにアクセス
@@ -39,22 +59,6 @@ OpenShift上にデプロイをするので、[ガイド](https://github.com/inst
 5. Log in with this token のコマンドをコピー（OpenShift CLIをローカルにインストールしておく必要がある ※前提条件2）
 6. CLIにコピーしたログインコマンドをペースト
 
-#### Helmのインストール
-Helmとは、リポジトリからのインストールや、Helmによってデプロイされたアプリの管理をCLIで簡易化するためのOSSです。Kubernetes向けのパッケージマネージャーとしてよく使われるようです。LinuxにおけるyumやRPM、MacOSにおけるHomebrewなどと同様のツールと考えると理解しやすいです。
-
-### 前提条件2　OpenShift CLI(oc)のインストール
-[IBM CloudのDocsのガイド](https://cloud.ibm.com/docs/openshift?topic=openshift-openshift-cli&locale=ja)を参考にしました。
-
-### 実際にデプロイをする
-
-手順1. Developerメニューの「+追加」からGit リポジトリーの「Gitからのインポート」に移動
-![スクリーンショット 2022-10-18 1 18 18](https://user-images.githubusercontent.com/112134163/196229876-b21b55b5-36e5-4694-ba4c-ae8e54385da2.png)
-
-手順2. Git リポジトリーのURLを入力。今回は[Robot-shop](https://github.com/instana/robot-shop)で作成
-![スクリーンショット 2022-10-18 1 19 57](https://user-images.githubusercontent.com/112134163/196230208-333c9ae9-b69c-40ab-80b8-e25413ea2963.png)
-
-手順3. インポートストラテジーの編集で、今回最適なNode.jsで作成
-![スクリーンショット 2022-10-18 1 22 01](https://user-images.githubusercontent.com/112134163/196230617-6c375c01-6439-4991-a8d6-914e309c1436.png)
 
 手順4. デプロイされたアプリを確認
 トポロジーからデプロイを確認できます。いくつもアプリケーションがデプロイされているのが確認できます。
