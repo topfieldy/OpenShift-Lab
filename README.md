@@ -40,14 +40,14 @@ OpenShift上にデプロイをするので、[ガイド](https://github.com/inst
 ![OCP 4 x](https://user-images.githubusercontent.com/112134163/196216692-09278479-d15c-4024-9fde-62627fe220ba.png)
 
 
-、、、
+```
 export KUBECONFIG=/path/to/oc/cluster/dir/auth/kubeconfig
 oc adm new-project robot-shop
 oc adm policy add-scc-to-user anyuid -z default -n robot-shop
 oc adm policy add-scc-to-user privileged -z default -n robot-shop
 cd robot-shop/K8s
 helm install robot-shop --set openshift=true -n robot-shop helm
-、、、
+```
 
 
 
