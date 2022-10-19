@@ -74,7 +74,9 @@ oc adm policy add-scc-to-user privileged -z default -n robot-shop
 ```
 OpenShiftではデフォルト状態で「restricted」というSCC(Security Context Constraints)のセキュリティ制約がかかっています。SCCとはPodのパーミッションを制御する機能です。
 今回のアプリは制約が強いので、Projectに特別な強い権限を付与しています。
-ただ、今回使用したOpenShift環境は権限の範囲が狭く、下記のようにErrorとなってしまい、Projectに強い権限を付与することができませんでした。アプリのデプロイ失敗です。。。
+ただ、今回使用したOpenShift環境は権限の範囲が狭く、下記のようにErrorとなってしまい、Projectに強い権限を付与することができませんでした。
+結果として、権限が足りなくて、この先のHelmでインストールするところでアプリのデプロイに失敗ということです。
+
 ```
 oc adm　 policy add-scc-to-user anyuid -z default -n robot-shop
 Error from server (Forbidden): rolebindings.rbac.authorization.k8s.io "system:openshift:scc:anyuid" is forbidden: User "IAM#yuki.uehara2@ibm.com" cannot get resource "rolebindings" in API group "rbac.authorization.k8s.io" in the namespace "robot-shop"
@@ -84,8 +86,8 @@ Error from server (Forbidden): rolebindings.rbac.authorization.k8s.io "system:op
 ```
 <br>
 
-ここからは別の[OpenShift環境](https://techzone.ibm.com/collection/fyre-ocp-clusters#)に切り替えてやっていきます。
-ここまでやってきたことと同様に進めていきます。 
+ここからは権限の範囲が広く設定してある別の[Technology ZoneのOpenShift環境](https://techzone.ibm.com/collection/fyre-ocp-clusters#)に切り替えてやっていきます。
+やり方としては、ここまでやってきたことと同様に進めていきます。 
 <br>
 <br>
 
