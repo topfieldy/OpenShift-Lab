@@ -59,7 +59,7 @@ export KUBECONFIG=/path/to/oc/cluster/dir/auth/kubeconfig
 このexport KUBECONFIGというコマンドで環境変数を設定することでクラスターへのアクセス情報を設定しているが、
 Red Hat OpenShift on IBM Cloudのサービスの場合は、この方法だけでは、ログインできないので、サービスが規定しているocコマンドでログインしています。
 
-ここでは、OpenShiftクラスターへログインをしています。私の場合は別の方法でログインをしました。
+ここでは、OpenShiftクラスターへログインをしています。私の場合は以下の方法でログインをしました。
 1. OpenShiftクラスターのOpenShift Webコンソールにアクセス
 2. Developerメニューのトポロジー
 3. 画面右上にある自分のアカウント名の右側にあるプルダウンから「ログインコマンドのコピー」
