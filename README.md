@@ -93,7 +93,7 @@ Error from server (Forbidden): rolebindings.rbac.authorization.k8s.io "system:op
 ```
 <br>
 
-ここからは権限の範囲が広く設定してある別の[Technology ZoneのOpenShift環境]([https://techzone.ibm.com/collection/fyre-ocp-clusters#](https://techzone.ibm.com/collection/custom-roks-vmware-requests)に切り替えてやっていきます。
+ここからは権限の範囲が広く設定してある別の[Technology ZoneのOpenShift環境](https://techzone.ibm.com/collection/custom-roks-vmware-requests)に切り替えてやっていきます。
 やり方としては、ここまでやってきたことと同様に進めていきます。 
 <br>
 <br>
