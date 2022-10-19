@@ -27,7 +27,8 @@ Purposeは下記から選択する必要があります。普段自分の学習�
 <img width="1073" alt="スクリーンショット 2022-10-18 13 51 52" src="https://user-images.githubusercontent.com/112134163/196338566-d733b5bc-b53a-47bc-b3ac-9aa45620d39a.png">
 
 ## GitHubに公開されているアプリケーションをOpenShift上にデプロイ
-実際にGitHubに公開されているアプリケーションをデプロイしていきます。監視用アプリケーションの[Instanaのアプリ Robot-shop](https://github.com/instana/robot-shop)を使用してデプロイします。
+実際にGitHubに公開されているアプリケーションをデプロイしていきます。  
+監視用アプリケーションの[Instanaのアプリ Robot-shop](https://github.com/instana/robot-shop)を使用します。
 <img width="1440" alt="スクリーンショット 2022-10-18 0 14 14" src="https://user-images.githubusercontent.com/112134163/196215705-763f36ef-b356-4983-b1ae-3bb6bb53e464.png">
 
 ### 前提条件1 OpenShift CLI(oc)のインストール
