@@ -23,7 +23,7 @@ Purposeは下記から選択する必要があります。普段自分の学習�
 
 
 5. OpenShift環境がプロビジョニングされていることを確認  
-完了メールか、Technology ZoneのMy Reservationから作成された環境を確認することができます。
+プロビジョニング完了メールか、Technology ZoneのMy Reservationから作成された環境を確認することができます。
 <img width="1073" alt="スクリーンショット 2022-10-18 13 51 52" src="https://user-images.githubusercontent.com/112134163/196338566-d733b5bc-b53a-47bc-b3ac-9aa45620d39a.png">
 
 ## GitHubに公開されているアプリケーションをOpenShift上にデプロイ
