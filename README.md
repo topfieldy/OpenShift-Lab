@@ -121,11 +121,11 @@ cdコマンドで、Helmが入っている「K8s」ディレクトリに移動�
 <img width="1078" alt="スクリーンショット 2022-10-18 21 38 55" src="https://user-images.githubusercontent.com/112134163/196431554-322e68da-9e9f-49d7-b037-9828934da5ea.png"> 
 
 外部ロードーバランサーのIPが「163.73.69.51」と確認できます。
-<img width="1070" alt="スクリーンショット 2022-10-18 21 42 38" src="https://user-images.githubusercontent.com/112134163/196432390-85425722-871d-4e0f-bd9b-fba3ab399ba4.png"> 
+<img width="1070" alt="スクリーンショット 2022-10-18 21 42 38" src="https://user-images.githubusercontent.com/112134163/196432390-85425722-871d-4e0f-bd9b-fba3ab399ba4.png">   
+<br>
 
+ブラウザに下記のようにIPアドレスを入力します。
 ```
-ブラウザにIPアドレスを入力
-
 http://<外部ロードバランサーのIP>:<web Podポート>
 http://163.73.69.51:8080
 ```
