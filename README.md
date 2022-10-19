@@ -3,7 +3,7 @@ Technology Zoneを利用して、OpenShift環境を作成し、公開されて�
 
 ## Technology ZoneにOpenShift環境を払出し
 OpenShiftの環境のreserve方法を解説します。
-1. [Technology Zone](https://techzone.ibm.com/)にアクセス 
+1. [Technology Zone](https://techzone.ibm.com/)にアクセス  
 Technology Zoneにアクセスし、IBMidを利用してログインします。
 
 2. 利用する環境を探して、手順に従って環境のreserveする
