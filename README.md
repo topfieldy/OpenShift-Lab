@@ -12,7 +12,7 @@ Technology Zoneにアクセスし、IBMidを利用してログインします。
 <img width="1237" alt="スクリーンショット 2022-10-17 10 18 16" src="https://user-images.githubusercontent.com/112134163/196212028-8fc8eff2-14d8-480d-acb7-bacc85bc1161.png">
 
 3. 環境を作成する目的や詳細など必須項目を埋めて「Submit」
-Purposeは下記から選択する必要があります。普段自分の学習用に使う場合は、Opportunity Codeが求められない「Practice/Self-Education」を選ぶことが多いです。その他、利用したいDCや利用開始日時等を入力します。
+Purposeは下記から選択する必要があります。普段自分の学習用に使う場合は、無条件で72時間まで使える「Practice/Self-Education」を選ぶことが多いです。その他、利用したいDCや利用開始日時等を入力します。
 <img width="1065" alt="スクリーンショット 2022-10-17 10 21 27" src="https://user-images.githubusercontent.com/112134163/196212759-0ad01696-f6cc-40bf-8c93-5de787dd3a41.png">
 
 4. 環境のプロビジョニング完了を待つ
