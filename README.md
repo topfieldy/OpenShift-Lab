@@ -8,7 +8,7 @@ Technology Zoneにアクセスし、IBMidを利用してログインします。
 
 2. 利用する環境を探して、手順に従って環境のreserveする
 今回は[Red Hat OpenShift on IBM Cloud basics lab - Environment](https://techzone.ibm.com/collection/roks-basics-lab#tab-1)の環境を利用しています。
-画面キャプチャの右側の環境です。「Reserve」をクリックし、「Reserce now」を選択し、「Submit」をクリックすると注文の詳細設定の画面に遷移します。
+画面キャプチャの右側の環境です。「Reserve」をクリックし、「Reserve now」を選択し、「Submit」をクリックすると注文の詳細設定の画面に遷移します。
 <img width="1237" alt="スクリーンショット 2022-10-17 10 18 16" src="https://user-images.githubusercontent.com/112134163/196212028-8fc8eff2-14d8-480d-acb7-bacc85bc1161.png">
 
 3. 環境を作成する目的や詳細など必須項目を埋めて「Submit」
@@ -132,5 +132,6 @@ http://163.73.69.51:8080
 <img width="1078" alt="スクリーンショット 2022-10-18 21 48 20" src="https://user-images.githubusercontent.com/112134163/196433731-f5cd3659-ea4f-41dc-a138-26224d251c41.png">
 <br>
 
+## 終わりに
 今回は、Technology Zoneの環境にOpenShift環境を払い出して、GitHubに公開されているアプリケーションをデプロイしました。従来の手作業でのデプロイと違って、OpenShiftを利用することでコマンドを数業打ち込むだけで簡単にデプロイをすることができました。
-同じTechnology Zoneに用意されているコンテンツでも、付与されている権限の範囲が異なることが分かりました。また1つのマイクロサービスをデプロイするのは少し大変ということだと思いました。ただ、robot-shopが少し特殊なアプリだったので苦戦失敗することもありましたが、通常の簡単なアプリであればSCCの制約は関係なくデプロイをすることができると思います。
+また、同じTechnology Zoneに用意されているコンテンツでも、付与されている権限の範囲が異なるというのも気付きとしてありました。1個1個のマイクロサービスのデプロイとは違い、マイクロサービス全部を束ねた1つのアプリをデプロイするのは少し大変でした。ただ、robot-shopが少し特殊なアプリだったので苦戦失敗することもありましたが、通常の簡単なアプリであればSCCの制約は関係なくデプロイをすることができると思います。
