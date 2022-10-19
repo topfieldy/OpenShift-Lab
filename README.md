@@ -8,7 +8,7 @@ Technology Zoneにアクセスし、IBMidを利用してログインします。
 
 2. 利用する環境を探して、手順に従って環境のreserveをする  
 今回は[Red Hat OpenShift on IBM Cloud basics lab - Environment](https://techzone.ibm.com/collection/roks-basics-lab#tab-1)の環境を利用しています。
-画面キャプチャの右側の環境です。「Reserve」をクリックし、「Reserve now」を選択し、「Submit」をクリックすると注文の詳細設定の画面に遷移します。
+画面キャプチャ左側の環境です。「Reserve」→「Reserve now」→「Submit」の順にクリックすると注文の詳細設定の画面に遷移します。
 <img width="1237" alt="スクリーンショット 2022-10-17 10 18 16" src="https://user-images.githubusercontent.com/112134163/196212028-8fc8eff2-14d8-480d-acb7-bacc85bc1161.png">
 
 3. 環境を作成する目的や詳細など必須項目を埋めて「Submit」  
