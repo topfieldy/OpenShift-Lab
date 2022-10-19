@@ -59,19 +59,20 @@ export KUBECONFIG=/path/to/oc/cluster/dir/auth/kubeconfig
 ```
 このexport KUBECONFIGというコマンドで環境変数を設定することでクラスターへのアクセス情報を設定しているが、Red Hat OpenShift on IBM Cloudのサービスの場合は、この方法だけでは、ログインできないので、サービスが規定しているocコマンドでログインしています。
 
-ここでは、OpenShiftクラスターへログインをしています。私の場合は以下の方法でログインをしました。  
+このコマンドでは、OpenShiftクラスターへログインをしています。私の場合は以下の方法でログインをしました。  
 1. OpenShiftクラスターのOpenShift Webコンソールにアクセス
 2. Developerメニューのトポロジー
 3. 画面右上にある自分のアカウント名の右側にあるプルダウンから「ログインコマンドのコピー」
 4. Display Tokenをクリック
 5. Log in with this token のコマンドをコピー（※前提条件1が必須）
-6. CLIにコピーしたログインコマンドをペースト  
+6. CLIにコピーしたログインコマンドをペーストすることでログインできる  
 
 
 ```
 oc adm new-project robot-shop
 ```
 「oc」とはOpenShiftのコマンドで、「adm」はAdministratorの権限を使って、「robot-shop」という新しいProjectを作成しています。 
+※「robot-shop」はProjectの名前なので、自分が識別できる物であれば、他の名前で問題ありません。
 <br>
 <br>
 
@@ -82,7 +83,7 @@ oc adm policy add-scc-to-user privileged -z default -n robot-shop
 OpenShiftではデフォルト状態で「restricted」というSCC(Security Context Constraints)のセキュリティ制約がかかっています。SCCとはPodのパーミッションを制御する機能です。
 今回のアプリは制約が強いので、Projectに特別な強い権限を付与しています。  
 ただ、今回使用したOpenShift環境は権限の範囲が狭く、下記のようにErrorとなってしまい、Projectに強い権限を付与することができませんでした。
-結果として、権限が足りなくて、この先のHelmでインストールするところでアプリのデプロイに失敗ということです。
+結果として、権限が足りなくて、この先のHelmでインストールするところでアプリのデプロイに失敗したということです。
 
 ```
 oc adm　 policy add-scc-to-user anyuid -z default -n robot-shop
@@ -94,7 +95,7 @@ Error from server (Forbidden): rolebindings.rbac.authorization.k8s.io "system:op
 <br>
 
 ここからは権限の範囲が広く設定してある別の[Technology ZoneのOpenShift環境](https://techzone.ibm.com/collection/custom-roks-vmware-requests)に切り替えてやっていきます。  
-やり方としては、ここまでやってきたことと同様に進めていきます。 
+やり方としては、ここまでやってきたことと同様に進めるだけなので割愛します。 
 <br>
 <br>
 
@@ -102,8 +103,7 @@ Error from server (Forbidden): rolebindings.rbac.authorization.k8s.io "system:op
 cd robot-shop/K8s
 helm install robot-shop --set openshift=true -n robot-shop helm
 ```
-cdコマンドで、Helmが入っている場所に移動し、その後に実際にアプリをデプロイするコマンドを実行しています。
-
+cdコマンドで、Helmが入っている「K8s」ディレクトリに移動し、次の行で、Helmを使用してアプリをデプロイするコマンドを実行しています。  
 ※前提条件2 として事前にHelmをインストールしておかないとコマンドが実行できないので注意が必要です。 
 <br>
 <br>
