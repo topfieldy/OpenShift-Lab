@@ -31,7 +31,7 @@ Purposeは下記から選択する必要があります。普段自分の学習�
 監視用アプリケーションの[Instanaのアプリ Robot-shop](https://github.com/instana/robot-shop)を使用します。
 <img width="1440" alt="スクリーンショット 2022-10-18 0 14 14" src="https://user-images.githubusercontent.com/112134163/196215705-763f36ef-b356-4983-b1ae-3bb6bb53e464.png">  
 
-### 前提条件1 OpenShift CLI(oc)のインストール
+### 前提条件1 OpenShift CLI(ocコマンド)のインストール
 [IBM CloudのDocsのガイド](https://cloud.ibm.com/docs/openshift?topic=openshift-openshift-cli&locale=ja)を参考にしてコマンドをインストールしました。
 
 
