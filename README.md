@@ -6,23 +6,23 @@ OpenShiftの環境のreserve方法を解説します。
 1. [Technology Zone](https://techzone.ibm.com/)にアクセス  
 Technology Zoneにアクセスし、IBMidを利用してログインします。
 
-2. 利用する環境を探して、手順に従って環境のreserveする
+2. 利用する環境を探して、手順に従って環境のreserveする  
 今回は[Red Hat OpenShift on IBM Cloud basics lab - Environment](https://techzone.ibm.com/collection/roks-basics-lab#tab-1)の環境を利用しています。
 画面キャプチャの右側の環境です。「Reserve」をクリックし、「Reserve now」を選択し、「Submit」をクリックすると注文の詳細設定の画面に遷移します。
 <img width="1237" alt="スクリーンショット 2022-10-17 10 18 16" src="https://user-images.githubusercontent.com/112134163/196212028-8fc8eff2-14d8-480d-acb7-bacc85bc1161.png">
 
-3. 環境を作成する目的や詳細など必須項目を埋めて「Submit」
+3. 環境を作成する目的や詳細など必須項目を埋めて「Submit」  
 Purposeは下記から選択する必要があります。普段自分の学習用に使う場合は、無条件で72時間まで使える「Practice/Self-Education」を選ぶことが多いです。その他、利用したいDCや利用開始日時等を入力します。
 <img width="1065" alt="スクリーンショット 2022-10-17 10 21 27" src="https://user-images.githubusercontent.com/112134163/196212759-0ad01696-f6cc-40bf-8c93-5de787dd3a41.png">
 
-4. 環境のプロビジョニング完了を待って、アカウントの招待を受け入れる
+4. 環境のプロビジョニング完了を待って、アカウントの招待を受け入れる  
 約30分ほどで環境がプロビジョニングされ、メールで完了通知とTechZoneのIBM Cloudアカウントからアカウントへの招待の通知がきました。
 招待を受け入れることで、TechZoneに作成したOpneShift環境へアクセスできるようになります。
 ※アカウントへの招待メールが届かない場合は、下記のプロビジョニング完了メールに記載されている「HERE」からアカウントへの招待を受け入れてください。
 <img width="604" alt="スクリーンショット 2022-10-19 14 29 57" src="https://user-images.githubusercontent.com/112134163/196605029-19f16fa7-0b35-447a-a775-d168925d5507.png">
 
 
-5. OpenShift環境がプロビジョニングされていることを確認
+5. OpenShift環境がプロビジョニングされていることを確認  
 完了メールか、Technology ZoneのMy Reservationから作成された環境を確認することができます。
 <img width="1073" alt="スクリーンショット 2022-10-18 13 51 52" src="https://user-images.githubusercontent.com/112134163/196338566-d733b5bc-b53a-47bc-b3ac-9aa45620d39a.png">
 
@@ -56,10 +56,9 @@ helm install robot-shop --set openshift=true -n robot-shop helm
 ```
 export KUBECONFIG=/path/to/oc/cluster/dir/auth/kubeconfig
 ```
-このexport KUBECONFIGというコマンドで環境変数を設定することでクラスターへのアクセス情報を設定しているが、
-Red Hat OpenShift on IBM Cloudのサービスの場合は、この方法だけでは、ログインできないので、サービスが規定しているocコマンドでログインしています。
+このexport KUBECONFIGというコマンドで環境変数を設定することでクラスターへのアクセス情報を設定しているが、Red Hat OpenShift on IBM Cloudのサービスの場合は、この方法だけでは、ログインできないので、サービスが規定しているocコマンドでログインしています。
 
-ここでは、OpenShiftクラスターへログインをしています。私の場合は以下の方法でログインをしました。
+ここでは、OpenShiftクラスターへログインをしています。私の場合は以下の方法でログインをしました。  
 1. OpenShiftクラスターのOpenShift Webコンソールにアクセス
 2. Developerメニューのトポロジー
 3. 画面右上にある自分のアカウント名の右側にあるプルダウンから「ログインコマンドのコピー」
@@ -80,7 +79,7 @@ oc adm policy add-scc-to-user anyuid -z default -n robot-shop
 oc adm policy add-scc-to-user privileged -z default -n robot-shop
 ```
 OpenShiftではデフォルト状態で「restricted」というSCC(Security Context Constraints)のセキュリティ制約がかかっています。SCCとはPodのパーミッションを制御する機能です。
-今回のアプリは制約が強いので、Projectに特別な強い権限を付与しています。
+今回のアプリは制約が強いので、Projectに特別な強い権限を付与しています。  
 ただ、今回使用したOpenShift環境は権限の範囲が狭く、下記のようにErrorとなってしまい、Projectに強い権限を付与することができませんでした。
 結果として、権限が足りなくて、この先のHelmでインストールするところでアプリのデプロイに失敗ということです。
 
@@ -93,7 +92,7 @@ Error from server (Forbidden): rolebindings.rbac.authorization.k8s.io "system:op
 ```
 <br>
 
-ここからは権限の範囲が広く設定してある別の[Technology ZoneのOpenShift環境](https://techzone.ibm.com/collection/custom-roks-vmware-requests)に切り替えてやっていきます。
+ここからは権限の範囲が広く設定してある別の[Technology ZoneのOpenShift環境](https://techzone.ibm.com/collection/custom-roks-vmware-requests)に切り替えてやっていきます。  
 やり方としては、ここまでやってきたことと同様に進めていきます。 
 <br>
 <br>
@@ -133,5 +132,5 @@ http://163.73.69.51:8080
 <br>
 
 ## 終わりに
-今回は、Technology Zoneの環境にOpenShift環境を払い出して、GitHubに公開されているアプリケーションをデプロイしました。従来の手作業でのデプロイと違って、OpenShiftを利用することでコマンドを数業打ち込むだけで簡単にデプロイをすることができました。
+今回は、Technology Zoneの環境にOpenShift環境を払い出して、GitHubに公開されているアプリケーションをデプロイしました。従来の手作業でのデプロイと違って、OpenShiftを利用することでコマンドを数業打ち込むだけで簡単にデプロイをすることができました。  
 また、同じTechnology Zoneに用意されているコンテンツでも、付与されている権限の範囲が異なるというのも気付きとしてありました。1個1個のマイクロサービスのデプロイとは違い、マイクロサービス全部を束ねた1つのアプリをデプロイするのは少し大変でした。ただ、robot-shopが少し特殊なアプリだったので苦戦失敗することもありましたが、通常の簡単なアプリであればSCCの制約は関係なくデプロイをすることができると思います。
