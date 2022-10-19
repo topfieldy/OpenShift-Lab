@@ -103,7 +103,8 @@ Error from server (Forbidden): rolebindings.rbac.authorization.k8s.io "system:op
 cd robot-shop/K8s
 helm install robot-shop --set openshift=true -n robot-shop helm
 ```
-cdコマンドで、Helmが入っている「K8s」ディレクトリに移動し、次の行で、Helmを使用してアプリをデプロイするコマンドを実行しています。  
+再度新たにプロビジョニングしたOpenShift環境で同様に進めてきました。
+cdコマンドで、Helmが入っている「K8s」ディレクトリに移動し、次の行で、Helmを使用してアプリをデプロイするコマンドを実行しています。これでデプロイ完了です。  
 ※前提条件2 として事前にHelmをインストールしておかないとコマンドが実行できないので注意が必要です。 
 <br>
 <br>
