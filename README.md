@@ -133,9 +133,9 @@ http://<外部ロードバランサーのIP>:<web Podポート>
 http://163.73.69.51:8080
 ```
 その結果しっかりと動いていることが確認できました。  
-ログイン画面から、「Login/Register」画面に遷移しています。
+
 ![スクリーンショット 2022-10-20 16 14 54](https://user-images.githubusercontent.com/112134163/196881272-c19b0031-75cc-4edd-85f5-013e865a444b.png)
-フォームに入力もできています。
+アクセスした画面から、「Login/Register」の画面にアクセスできました。フォームに入力もできています。
 ![スクリーンショット 2022-10-20 16 17 04](https://user-images.githubusercontent.com/112134163/196881703-1b96108f-3d51-4dfe-b8e6-b12a60ddf50f.png)
 「Categories」という項目にもアクセスできることが確認できました。
 ![スクリーンショット 2022-10-20 16 18 23](https://user-images.githubusercontent.com/112134163/196881961-739456c3-1c26-49d2-8999-4f6014629d59.png)
