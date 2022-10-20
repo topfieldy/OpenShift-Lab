@@ -1,6 +1,13 @@
 # Technology Zoneを利用して、OpenShift環境にアプリケーションをデプロイ
 Technology Zoneを利用して、OpenShift環境を作成し、公開されているアプリケーションをデプロイして実際に動かしてみました。実施してみて、難しかったところや詰まったところも含めて紹介していきます。
 
+## 目次
+1. Technology ZoneにOpenShift環境を払出し
+2. GitHubに公開されているアプリケーションをOpenShift上にデプロイ
+3. デプロイの手順
+4. 実際にアプリを開いてみる
+5. 終わりに
+
 ## Technology ZoneにOpenShift環境を払出し
 OpenShiftの環境のreserve方法を解説します。
 1. [Technology Zone](https://techzone.ibm.com/)にアクセス  
