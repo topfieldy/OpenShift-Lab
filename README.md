@@ -135,8 +135,10 @@ http://163.73.69.51:8080
 その結果しっかりと動いていることが確認できました。  
 下記が、アクセスした画面です。
 ![スクリーンショット 2022-10-20 16 14 54](https://user-images.githubusercontent.com/112134163/196881272-c19b0031-75cc-4edd-85f5-013e865a444b.png)
+<br>
 Login/Register」にアクセスでき、フォームへの入力もできています。
 ![スクリーンショット 2022-10-20 16 17 04](https://user-images.githubusercontent.com/112134163/196881703-1b96108f-3d51-4dfe-b8e6-b12a60ddf50f.png)
+<br>
 「Categories」という項目にもアクセスできることが確認できました。
 ![スクリーンショット 2022-10-20 16 18 23](https://user-images.githubusercontent.com/112134163/196881961-739456c3-1c26-49d2-8999-4f6014629d59.png)
 <br>
