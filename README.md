@@ -2,11 +2,11 @@
 Technology Zoneを利用して、OpenShift環境を作成し、公開されているアプリケーションをデプロイして実際に動かしてみました。実施してみて、難しかったところや詰まったところも含めて紹介していきます。
 
 ## 目次
-1. Technology ZoneにOpenShift環境を払出し
-2. GitHubに公開されているアプリケーションをOpenShift上にデプロイ
-3. デプロイの手順
-4. 実際にアプリを開いてみる
-5. 終わりに
+1. [Technology ZoneにOpenShift環境を払出し](https://github.com/topfieldy/OpenShift-Lab/blob/main/README.md#technology-zone%E3%81%ABopenshift%E7%92%B0%E5%A2%83%E3%82%92%E6%89%95%E5%87%BA%E3%81%97)
+2. [GitHubに公開されているアプリケーションをOpenShift上にデプロイ](https://github.com/topfieldy/OpenShift-Lab#github%E3%81%AB%E5%85%AC%E9%96%8B%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92openshift%E4%B8%8A%E3%81%AB%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4)
+3. [デプロイの手順](https://github.com/topfieldy/OpenShift-Lab#%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%AE%E6%89%8B%E9%A0%86)
+4. [実際にアプリを開いてみる](https://github.com/topfieldy/OpenShift-Lab#%E5%AE%9F%E9%9A%9B%E3%81%AB%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E9%96%8B%E3%81%84%E3%81%A6%E3%81%BF%E3%82%8B)
+5. [終わりに](https://github.com/topfieldy/OpenShift-Lab#%E7%B5%82%E3%82%8F%E3%82%8A%E3%81%AB)
 
 ## Technology ZoneにOpenShift環境を払出し
 OpenShiftの環境のreserve方法を解説します。
