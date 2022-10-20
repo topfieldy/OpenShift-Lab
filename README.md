@@ -76,7 +76,7 @@ export KUBECONFIG=/path/to/oc/cluster/dir/auth/kubeconfig
 ```
 oc adm new-project robot-shop
 ```
-`oc`とはOpenShiftのコマンドで、`adm`はAdministratorの権限を使って、`robot-shop`という新しいProjectを作成しています。 
+`oc`とはOpenShiftのコマンドで、`adm`はAdministratorの権限を使って、`robot-shop`という新しいProjectを作成しています。  
 ※`robot-shop`はProjectの名前なので、自分が識別できる名前であれば、他の名前で問題ありません。
 <br>
 <br>
@@ -114,7 +114,8 @@ cdコマンドで、Helmで導入するパッケージのリソースが含ま�
 
 
 ### デプロイされたアプリを確認
-`OpenShiftのDeveloperコンソールのトポロジー`からデプロイされているリソースを確認することができます。Robot-shopを構成するマイクロサービスがデプロイされているのが確認でき、アプリケーションのデプロイは成功しているようです。  
+`OpenShiftのDeveloperコンソールのトポロジー`からデプロイされているリソースを確認することができます。  
+Robot-shopを構成するマイクロサービスがデプロイされているのが確認でき、アプリケーションのデプロイは成功しているようです。  
 <img width="1148" alt="スクリーンショット 2022-10-18 13 44 26" src="https://user-images.githubusercontent.com/112134163/196337451-52a1bbb0-0a5f-4cd5-9203-da998ca04af7.png"> 
 <br>
 <br>
