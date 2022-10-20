@@ -8,7 +8,7 @@ Technology Zoneを利用して、OpenShift環境を作成し、公開されて�
 4. [実際にアプリを開いてみる](https://github.com/topfieldy/OpenShift-Lab#%E5%AE%9F%E9%9A%9B%E3%81%AB%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E9%96%8B%E3%81%84%E3%81%A6%E3%81%BF%E3%82%8B)
 5. [終わりに](https://github.com/topfieldy/OpenShift-Lab#%E7%B5%82%E3%82%8F%E3%82%8A%E3%81%AB)
 
-## Technology ZoneにOpenShift環境を払出し
+## 1. Technology ZoneにOpenShift環境を払出し
 OpenShiftの環境のreserve方法を解説します。
 1. [Technology Zone](https://techzone.ibm.com/)にアクセス  
 Technology Zoneにアクセスし、IBMidを利用してログインします。
@@ -33,7 +33,7 @@ Purposeは下記から選択する必要があります。普段自分の学習�
 プロビジョニング完了メールか、Technology ZoneのMy Reservationから作成された環境を確認することができます。
 <img width="1073" alt="スクリーンショット 2022-10-18 13 51 52" src="https://user-images.githubusercontent.com/112134163/196338566-d733b5bc-b53a-47bc-b3ac-9aa45620d39a.png">
 
-## GitHubに公開されているアプリケーションをOpenShift上にデプロイ
+## 2. GitHubに公開されているアプリケーションをOpenShift上にデプロイ
 実際にGitHubに公開されているアプリケーションをデプロイしていきます。  
 監視用アプリケーションの[Instanaのアプリ Robot-shop](https://github.com/instana/robot-shop)を使用します。
 <img width="1440" alt="スクリーンショット 2022-10-18 0 14 14" src="https://user-images.githubusercontent.com/112134163/196215705-763f36ef-b356-4983-b1ae-3bb6bb53e464.png">  
@@ -46,7 +46,7 @@ Purposeは下記から選択する必要があります。普段自分の学習�
 Helmとは、リポジトリからのインストールや、Helmによってデプロイされたアプリの管理をCLIで簡易化するためのOSSです。Kubernetes向けのパッケージマネージャーとしてよく使われるようです。LinuxにおけるyumやRPM、MacOSにおけるHomebrewなどと同様のツールと考えると理解しやすいです。
 
 
-## デプロイの手順
+## 3. デプロイの手順
 OpenShift上にデプロイをするので、[ガイド](https://github.com/instana/robot-shop/tree/master/OpenShift)に従い設定を行いました。
 下記のコマンドを実行することで、アプリケーションをデプロイできました。
 ```
@@ -123,7 +123,7 @@ cdコマンドで、Helmが入っている「K8s」ディレクトリに移動�
 <br>
 <br>
 
-## 実際にアプリを開いてみる
+## 5. 実際にアプリを開いてみる
 アプリのアクセス方法は、「トポロジー」のデプロイしたアプリの中から、「wed」を選び、「リソース」のタブを開きます。webのPodポートが「8080」だと確認できます。次にサービスの中の「web」のリンク先にアクセスします。
 <img width="1078" alt="スクリーンショット 2022-10-18 21 38 55" src="https://user-images.githubusercontent.com/112134163/196431554-322e68da-9e9f-49d7-b037-9828934da5ea.png"> 
 
@@ -140,6 +140,6 @@ http://163.73.69.51:8080
 <img width="1078" alt="スクリーンショット 2022-10-18 21 48 20" src="https://user-images.githubusercontent.com/112134163/196433731-f5cd3659-ea4f-41dc-a138-26224d251c41.png">
 <br>
 
-## 終わりに
+## 5. 終わりに
 今回は、Technology Zoneの環境にOpenShift環境を払い出して、GitHubに公開されているアプリケーションをデプロイしました。従来の手作業でのデプロイと違って、OpenShiftを利用することでコマンドを数業打ち込むだけで簡単にデプロイをすることができました。  
 また、同じTechnology Zoneに用意されているコンテンツでも、付与されている権限の範囲が異なるというのも気付きとしてありました。1個1個のマイクロサービスのデプロイとは違い、マイクロサービス全部を束ねた1つのアプリとしてデプロイするのは少し大変でした。ただ、robot-shopが少し特殊なアプリだったので苦戦失敗することもありましたが、通常の簡単なアプリであればSCCの制約は関係なくデプロイをすることができると思います。
