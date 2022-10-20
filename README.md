@@ -23,7 +23,7 @@ Technology Zoneにアクセスし、IBMidを利用してログインします。
 
 4. アカウントの招待の受け入れ  
 約30分ほどで環境がプロビジョニングされ、メールで完了通知とTechnology ZoneのIBM Cloudアカウントからアカウントへの招待の通知がきました。
-招待を受け入れることで、Technology Zoneに作成したOpneShift環境へアクセスできるようになります。  
+招待を受け入れることで、Technology Zoneに作成したOpenShift環境へアクセスできるようになります。  
 ※アカウントへの招待メールが届かない場合は、プロビジョニング完了メールに記載されている下記のような文章の中の「HERE」からアカウントへの招待を受け入れてください。
 <img width="685" alt="スクリーンショット 2022-10-19 23 21 18" src="https://user-images.githubusercontent.com/112134163/196718102-ec179878-c53b-4c99-9486-ece9272d1711.png">
 
